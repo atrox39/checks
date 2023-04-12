@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checador</title>
+</head>
+<body>
+  <input type="text" id="txtEmpleado" placeholder="Numero de empleado">
+  <button id="btnChecar">Checar</button>
+  <textarea id="txtLog" cols="30" rows="10"></textarea>
+  <script>
+    const btnChecar = document.getElementById('btnChecar');
+    const txtEmpleado = document.getElementById('txtEmpleado');
+    const txtLog = document.getElementById('txtLog');
+    btnChecar.addEventListener('click', async () => {
+      const empleado = txtEmpleado.value;
+      const res = await fetch(`/api/checar/${empleado}`, {
+        method: 'GET',
+      });
+      const data = await res.json();
+      txtLog.value = `
+        Hora entrada: ${data['hora_entrada']}
+        Hora salida: ${data['hora_salida'] === null ? 'No ha salido' : data['hora_salida']}
+      `;
+    });
+  </script>
+</body>
+</html>
