@@ -18,3 +18,6 @@ yarn install
 ```bash
 yarn deploy
 ```
+
+### Paso 3
+Se debe crear un archivo `.env` basado en el archivo `.env.example` de lo contrario no se conectara a la base de datos
