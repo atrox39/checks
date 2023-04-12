@@ -18,8 +18,3 @@ yarn install
 ```bash
 yarn deploy
 ```
-
-### Paso 3
-```bash
-yarn start
-```
